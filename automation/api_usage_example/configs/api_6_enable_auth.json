@@ -1,0 +1,280 @@
+{
+    "options": {
+        "downloadBase": "/var/lib/mongodb-mms-automation"
+    },
+    "mongoDbVersions": [
+        {
+            "name": "2.6.5"
+        },
+        {
+            "name": "2.6.6"
+        }
+    ],
+    "backupVersions": [
+        {
+            "hostname": "AGENT_HOSTNAME",
+            "logPath": "/var/log/mongodb-mms-automation/backup-agent.log",
+            "logRotate": {
+                "sizeThresholdMB": 1000,
+                "timeThresholdHrs": 24
+            }
+        }
+    ],
+
+    "monitoringVersions": [
+        {
+            "hostname": "AGENT_HOSTNAME",
+            "logPath": "/var/log/mongodb-mms-automation/monitoring-agent.log",
+            "logRotate": {
+                "sizeThresholdMB": 1000,
+                "timeThresholdHrs": 24
+            }
+        }
+    ],
+    "processes": [
+        {
+            "args2_6": {
+                "net": {
+                    "port": 28000,
+                    "maxIncomingConnections": 5000
+                },
+                "replication": {
+                    "replSetName": "blue"
+                },
+                "storage": {
+                    "dbPath": "/data/blue_0"
+                },
+                "systemLog": {
+                    "destination": "file",
+                    "path": "/data/blue_0/mongodb.log"
+                }
+            },
+            "hostname": "AGENT_HOSTNAME",
+            "logRotate": {
+                "sizeThresholdMB": 1000,
+                "timeThresholdHrs": 24
+            },
+            "name": "blue_0",
+            "processType": "mongod",
+            "version": "2.6.6",
+            "authSchemaVersion": 3
+        },
+        {
+            "args2_6": {
+                "net": {
+                    "port": 28001,
+                    "maxIncomingConnections": 5000
+                },
+                "replication": {
+                    "replSetName": "blue"
+                },
+                "storage": {
+                    "dbPath": "/data/blue_1"
+                },
+                "systemLog": {
+                    "destination": "file",
+                    "path": "/data/blue_1/mongodb.log"
+                }
+            },
+            "hostname": "AGENT_HOSTNAME",
+            "logRotate": {
+                "sizeThresholdMB": 1000,
+                "timeThresholdHrs": 24
+            },
+            "name": "blue_1",
+            "processType": "mongod",
+            "version": "2.6.6",
+            "authSchemaVersion": 3
+        },
+        {
+            "args2_6": {
+                "net": {
+                    "port": 28002,
+                    "maxIncomingConnections": 5000
+                },
+                "replication": {
+                    "replSetName": "blue"
+                },
+                "storage": {
+                    "dbPath": "/data/blue_2"
+                },
+                "systemLog": {
+                    "destination": "file",
+                    "path": "/data/blue_2/mongodb.log"
+                }
+            },
+            "hostname": "AGENT_HOSTNAME",
+            "logRotate": {
+                "sizeThresholdMB": 1000,
+                "timeThresholdHrs": 24
+            },
+            "name": "blue_2",
+            "processType": "mongod",
+            "version": "2.6.6",
+            "authSchemaVersion": 3
+        },
+        {
+            "args2_6": {
+                "net": {
+                    "port": 28017,
+                    "maxIncomingConnections": 4000
+                },
+                "systemLog": {
+                    "destination": "file",
+                    "path": "/data/blue_mongos_3/mongodb.log"
+                }
+            },
+            "cluster": "blueCluster",
+            "hostname": "AGENT_HOSTNAME",
+            "logRotate": {
+                "sizeThresholdMB": 1000,
+                "timeThresholdHrs": 24
+            },
+            "name": "blue_mongos_3",
+            "processType": "mongos",
+            "version": "2.6.6",
+            "authSchemaVersion": 3
+        },
+        {
+            "args2_6": {
+                "net": {
+                    "port": 28019,
+                    "maxIncomingConnections": 3000
+                },
+                "sharding": {
+                    "clusterRole": "configsvr"
+                },
+                "storage": {
+                    "dbPath": "/data/blue_config_4"
+                },
+                "systemLog": {
+                    "destination": "file",
+                    "path": "/data/blue_config_4/mongodb.log"
+                }
+            },
+            "hostname": "AGENT_HOSTNAME",
+            "alias": "AGENT_HOSTNAME",
+            "logRotate": {
+                "sizeThresholdMB": 1000,
+                "timeThresholdHrs": 24
+            },
+            "name": "blue_config_4",
+            "processType": "mongod",
+            "version": "2.6.6",
+            "authSchemaVersion": 3
+        }
+    ],
+    "replicaSets": [
+        {
+            "_id": "blue",
+            "members": [
+                {
+                    "_id": 0,
+                    "host": "blue_0"
+                },
+                {
+                    "_id": 1,
+                    "host": "blue_1"
+                },
+                {
+                    "_id": 2,
+                    "arbiterOnly": true,
+                    "host": "blue_2",
+                    "priority": 0
+                }
+            ]
+        }
+    ],
+    "sharding": [
+        {
+            "configServer": [
+                "blue_config_4"
+            ],
+            "name": "blueCluster",
+            "shards": [
+                {
+                    "_id": "blue",
+                    "rs": "blue"
+                }
+            ]
+        }
+    ],
+    "roles": [
+        {
+            "db": "fruit",
+            "role": "fruitInsertOnly",
+            "privileges": [
+                {
+                    "resource": {
+                        "db": "fruit",
+                        "collection": "",
+                        "cluster": null
+                    },
+                    "actions": [
+                        "insert"
+                    ]
+                }
+            ],
+            "roles": null
+        }
+    ],
+    "auth": {
+        "disabled": false,
+        "autoPwd": "Sy4oBX9ei0amvupBAN8lVQhj",
+        "autoUser": "mms-automation",
+        "key": "GrSLAAsHGXmJOrvElJ2AHTGauvH4O0EFT1r8byvb0G9sTU0viVX21PwUMqBjyXB9WrZP9QvEmCQIF1wOqJofyWmx7wWZqpO69dnc9GUWcpGQLr7eVyKTs99WAPXR3kXpF4MVrHdBMEDfRfhytgomgAso96urN6eC8RaUpjX4Bf9HcAEJwfddZshin97XKJDmqCaqAfORNnf1e8hkfTIwYg1tvIpwemmEF4TkmOgK09N5dINyejyWMU8iWG8FqW5MfQ8A2DrtIdyGSKLH05s7H1dXyADjDECaC77QqLXTx7gWyHca3I0K92PuVFoOs5385vzqTYN3kVgFotSdXgoM8Zt5QIoj2lX4PYqm2TWsVp0s15JELikH8bNVIIMGiSSWJEWGU1PVEXD7V7cYepDb88korMjr3wbh6kZ76Q7F2RtfJqkd4hKw7B5OCX04b5eppkjL598iCpSUUx3X9C6fFavWj2DrHsv9DY86iCWBlcG08DRPKs9EPizCW4jNZtJcm3T7WlcI0MZMKOtsKOCWBZA0C9YnttNrp4eTsQ1U43StiIRPqp2K8rrQAu6etURH0RHedazHeeukTWI7iTG1dZpYk9EyittZ72qKXLNLhi5vJ9TlYw8O91vihB1nJwwA3B1WbiYhkqqRzoL0cQpXJMUsUlsoSP6Q70IMU92vEHbUmna5krESPLeJfQBKGQPNVVE63XYBh2TnvFTdi6koitu209wMFUnHZrzWj3UWGqsyTqqHbPl4RhRLFe24seRwV2SbUuLygBIdptKHnA3kutAbHzsWTT8UxOaiQzFV4auxounrgXj7MoMWEVKKS8AHkELPILGqFVFC8BZsfPC0WacSN5Rg5SaCvfs74hcsCQ3ghq9PyxEb2fbHUiaCjnsBcXqzQw9AjZJG4yX0ubEwicP0bKB6y3w4PUQqdouxH5y16OgkUjrZgodJfRLgP9vqGbHNDpj4yBuswluvCFBh38gBoSIQu11qtQmk43n4G8Dskn0DrJ32l2Gz35q5LaKT",
+        "keyfile": "/var/lib/mongodb-mms-automation/keyfile",
+        "usersWanted": [
+            {
+                "db": "fruit",
+                "user": "fruitInsertOnlyUser",
+                "initPwd": "6782fa9dfefc4da96ddc2e6099f79bbf",
+                "roles": [
+                    {
+                        "db": "fruit",
+                        "role": "fruitInsertOnly"
+                    }
+                ]
+            },
+            {
+                "db": "admin",
+                "initPwd": "6782fa9dfefc4da96ddc2e6099f79bbf",
+                "roles": [
+                    {
+                        "db": "admin",
+                        "role": "clusterMonitor"
+                    }
+                ],
+                "user": "mms-monitoring-agent"
+            },
+            {
+                "db": "admin",
+                "initPwd": "d378693eb4888a79d1864f4affb0a739",
+                "roles": [
+                    {
+                        "db": "admin",
+                        "role": "clusterAdmin"
+                    },
+                    {
+                        "db": "admin",
+                        "role": "readAnyDatabase"
+                    },
+                    {
+                        "db": "admin",
+                        "role": "userAdminAnyDatabase"
+                    },
+                    {
+                        "db": "local",
+                        "role": "readWrite"
+                    },
+                    {
+                        "db": "admin",
+                        "role": "readWrite"
+                    }
+                ],
+                "user": "mms-backup-agent"
+            }
+        ],
+        "usersDeleted": []
+    }
+}

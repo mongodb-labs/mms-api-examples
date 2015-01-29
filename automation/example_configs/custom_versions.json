@@ -1,0 +1,53 @@
+{
+  "options": {
+    "downloadBase": "/var/lib/mongodb-mms-automation"
+  },
+  "mongoDbVersions": [
+    {
+      "builds": [
+        {
+          "bits": 64,
+          "gitVersion": "e367a48c7ff9eca187712fcfba1322c37af69780",
+          "platform": "osx",
+          "url": "https://s3.amazonaws.com/mciuploads/mongodb-mongo-v2.6/osx-108/e367a48c7ff9eca187712fcfba1322c37af69780/binaries/binaries-mongodb_mongo_v2.6_osx_108_e367a48c7ff9eca187712fcfba1322c37af69780_15_01_16_02_19_24.tgz"
+        },
+        {
+          "bits": 64,
+          "gitVersion": "e367a48c7ff9eca187712fcfba1322c37af69780",
+          "platform": "linux",
+          "url": "https://s3.amazonaws.com/mciuploads/mongodb-mongo-v2.6/linux-64/e367a48c7ff9eca187712fcfba1322c37af69780/binaries/binaries-mongodb_mongo_v2.6_linux_64_e367a48c7ff9eca187712fcfba1322c37af69780_15_01_16_02_19_24.tgz"
+        }
+      ],
+      "name": "2.6.8-pre"
+    }
+  ],
+  "monitoringVersions": [],
+  "backupVersions": [],
+  "processes": [
+    {
+      "args2_6": {
+        "net": {
+          "port": 28000
+        },
+        "storage": {
+          "dbPath": "/data/blue_0"
+        },
+        "systemLog": {
+          "destination": "file",
+          "path": "/tmp/data/blue_0/mongodb.log"
+        }
+      },
+      "hostname": "cailinmac",
+      "logRotate": {
+        "sizeThresholdMB": 1000,
+        "timeThresholdHrs": 24
+      },
+      "name": "blue_0",
+      "processType": "mongod",
+      "version": "2.6.8-pre",
+      "authSchemaVersion": 3
+    }
+  ],
+  "replicaSets": [],
+  "sharding": []
+}

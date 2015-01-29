@@ -1,0 +1,11 @@
+{
+    "options": {
+        "downloadBase": "/var/lib/mongodb-mms-automation"
+    },
+    "mongoDbVersions": [],
+    "monitoringVersions": [],
+    "backupVersions": [],
+    "processes": [],
+    "replicaSets": [],
+    "sharding": []
+}
