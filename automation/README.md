@@ -444,8 +444,3 @@ For example:
 
     python test_automation_api.py https://mms.mongodb.com mongo-1.example.com 54b5e4df9436322466a89a3e fred@example.com 063fc60e-c5eb-4426-85c1-1e650d6228c6
     
-## Appendix
-
-### Custom MongoDB Versions
-
-TBD. Do not use the API to define custom MongoDB versions until CM-2281 is closed.
