@@ -1,38 +1,37 @@
 {
-   "options": {
+    "options": {
         "downloadBase": "/var/lib/mongodb-mms-automation",
         "downloadBaseWindows": "C:\\mongodb-mms-automation"
     },
+    "ssl": {
+        "CAFilePath": "/opt/ca.pem",
+        "clientCertificateMode": "OPTIONAL"
+    },
     "mongoDbVersions": [
-        {"name": "3.0.1"},
-        {"name": "3.0.2"}
+        {
+            "name": "3.0.1-ent"
+        }
     ],
     "backupVersions": [
         {
-            "hostname": "MACHINE_HOSTNAME",
-            "logPath": "/var/log/mongodb-mms-automation/backup-agent.log",
-            "logRotate": {
-                "sizeThresholdMB": 1000,
-                "timeThresholdHrs": 24
-            }
+            "hostname": "Machine_hostname"
         }
     ],
 
     "monitoringVersions": [
         {
-            "hostname": "MACHINE_HOSTNAME",
-            "logPath": "/var/log/mongodb-mms-automation/monitoring-agent.log",
-            "logRotate": {
-                "sizeThresholdMB": 1000,
-                "timeThresholdHrs": 24
-            }
+            "hostname": "Machine_hostname"
         }
     ],
     "processes": [
         {
             "args2_6": {
                 "net": {
-                    "port": 28000
+                    "port": 28000,
+                    "ssl": {
+                        "mode": "requireSSL",
+                        "PEMKeyFile": "/opt/mongodb-1.pem"
+                    }
                 },
                 "replication": {
                     "replSetName": "blue"
@@ -45,20 +44,24 @@
                     "path": "/data/blue_0/mongodb.log"
                 }
             },
-            "hostname": "MACHINE_HOSTNAME",
+            "hostname": "Machine_hostname",
             "logRotate": {
                 "sizeThresholdMB": 1000,
                 "timeThresholdHrs": 24
             },
             "name": "blue_0",
             "processType": "mongod",
-            "version": "3.0.1",
-            "authSchemaVersion": 3
+            "version": "3.0.1-ent",
+            "authSchemaVersion": 5
         },
         {
             "args2_6": {
                 "net": {
-                    "port": 28001
+                    "port": 28001,
+                    "ssl": {
+                        "mode": "requireSSL",
+                        "PEMKeyFile": "/opt/mongodb-2.pem"
+                    }
                 },
                 "replication": {
                     "replSetName": "blue"
@@ -71,20 +74,24 @@
                     "path": "/data/blue_1/mongodb.log"
                 }
             },
-            "hostname": "MACHINE_HOSTNAME",
+            "hostname": "Machine_hostname",
             "logRotate": {
                 "sizeThresholdMB": 1000,
                 "timeThresholdHrs": 24
             },
             "name": "blue_1",
             "processType": "mongod",
-            "version": "3.0.1",
-            "authSchemaVersion": 3
+            "version": "3.0.1-ent",
+            "authSchemaVersion": 5
         },
         {
             "args2_6": {
                 "net": {
-                    "port": 28002
+                    "port": 28002,
+                    "ssl": {
+                        "mode": "requireSSL",
+                        "PEMKeyFile": "/opt/mongodb-3.pem"
+                    }
                 },
                 "replication": {
                     "replSetName": "blue"
@@ -97,15 +104,15 @@
                     "path": "/data/blue_2/mongodb.log"
                 }
             },
-            "hostname": "MACHINE_HOSTNAME",
+            "hostname": "Machine_hostname",
             "logRotate": {
                 "sizeThresholdMB": 1000,
                 "timeThresholdHrs": 24
             },
             "name": "blue_2",
             "processType": "mongod",
-            "version": "3.0.1",
-            "authSchemaVersion": 3
+            "version": "3.0.1-ent",
+            "authSchemaVersion": 5
         }
     ],
     "replicaSets": [

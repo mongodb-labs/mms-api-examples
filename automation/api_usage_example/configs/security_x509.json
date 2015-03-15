@@ -1,0 +1,189 @@
+{
+    "options": {
+        "downloadBase": "/var/lib/mongodb-mms-automation",
+        "downloadBaseWindows": "C:\\mongodb-mms-automation"
+    },
+    "mongoDbVersions": [
+        {
+            "name": "3.0.1-ent"
+        }
+    ],
+    "backupVersions": [
+        {
+            "hostname": "Machine_hostname"
+        }
+    ],
+
+    "monitoringVersions": [
+        {
+            "hostname": "Machine_hostname"
+        }
+    ],
+    "processes": [
+        {
+            "args2_6": {
+                "net": {
+                    "port": 28000,
+                    "ssl": {
+                        "mode": "requireSSL",
+                        "PEMKeyFile": "/opt/mongodb-1.pem"
+                    }
+                },
+                "replication": {
+                    "replSetName": "blue"
+                },
+                "storage": {
+                    "dbPath": "/data/blue_0"
+                },
+                "systemLog": {
+                    "destination": "file",
+                    "path": "/data/blue_0/mongodb.log"
+                }
+            },
+            "hostname": "Machine_hostname",
+            "logRotate": {
+                "sizeThresholdMB": 1000,
+                "timeThresholdHrs": 24
+            },
+            "name": "blue_0",
+            "processType": "mongod",
+            "version": "3.0.1-ent",
+            "authSchemaVersion": 5
+        },
+        {
+            "args2_6": {
+                "net": {
+                    "port": 28001,
+                    "ssl": {
+                        "mode": "requireSSL",
+                        "PEMKeyFile": "/opt/mongodb-1.pem"
+                    }
+                },
+                "replication": {
+                    "replSetName": "blue"
+                },
+                "storage": {
+                    "dbPath": "/data/blue_1"
+                },
+                "systemLog": {
+                    "destination": "file",
+                    "path": "/data/blue_1/mongodb.log"
+                }
+            },
+            "hostname": "Machine_hostname",
+            "logRotate": {
+                "sizeThresholdMB": 1000,
+                "timeThresholdHrs": 24
+            },
+            "name": "blue_1",
+            "processType": "mongod",
+            "version": "3.0.1-ent",
+            "authSchemaVersion": 5
+        },
+        {
+            "args2_6": {
+                "net": {
+                    "port": 28002,
+                    "ssl": {
+                        "mode": "requireSSL",
+                        "PEMKeyFile": "/opt/mongodb-1.pem"
+                    }
+                },
+                "replication": {
+                    "replSetName": "blue"
+                },
+                "storage": {
+                    "dbPath": "/data/blue_2"
+                },
+                "systemLog": {
+                    "destination": "file",
+                    "path": "/data/blue_2/mongodb.log"
+                }
+            },
+            "hostname": "Machine_hostname",
+            "logRotate": {
+                "sizeThresholdMB": 1000,
+                "timeThresholdHrs": 24
+            },
+            "name": "blue_2",
+            "processType": "mongod",
+            "version": "3.0.1-ent",
+            "authSchemaVersion": 5
+        }
+    ],
+    "replicaSets": [
+        {
+            "_id": "blue",
+            "members": [
+                {
+                    "_id": 0,
+                    "host": "blue_0",
+                    "priority": 5
+                },
+                {
+                    "_id": 1,
+                    "host": "blue_1"
+                },
+                {
+                    "_id": 2,
+                    "host": "blue_2"
+                }
+            ]
+        }
+    ],
+    "roles": [],
+    "sharding": [],
+    "auth": {
+        "disabled": false,
+        "autoAuthMechanism": "MONGODB-X509",
+        "autoUser": "CN=automation-agent,O=MMS",
+        "deploymentAuthMechanisms": ["MONGODB-X509"],
+        "key": "someverylongandrandomcontents",
+        "keyfile": "/var/lib/mongodb-mms-automation/keyfile",
+        "usersWanted": [
+             {
+                "db": "$external",
+                "roles": [
+                    {
+                        "db": "admin",
+                        "role": "clusterMonitor"
+                    }
+                ],
+                "user": "CN=monitoring-agent,O=MMS"
+            },
+            {
+                "db": "$external",
+                "roles": [
+                    {
+                        "db": "admin",
+                        "role": "clusterAdmin"
+                    },
+                    {
+                        "db": "admin",
+                        "role": "readAnyDatabase"
+                    },
+                    {
+                        "db": "admin",
+                        "role": "userAdminAnyDatabase"
+                    },
+                    {
+                        "db": "local",
+                        "role": "readWrite"
+                    },
+                    {
+                        "db": "admin",
+                        "role": "readWrite"
+                    }
+                ],
+                "user": "CN=backup-agent,O=MMS"
+            }
+        ],
+        "usersDeleted": []
+    },
+    "ssl": {
+        "CAFilePath": "/opt/ca.pem",
+        "clientCertificateMode": "REQUIRE",
+        "autoPEMKeyFilePath": "/opt/automation-agent.pem"
+
+    }
+}

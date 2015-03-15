@@ -1,31 +1,22 @@
 {
-   "options": {
+    "options": {
         "downloadBase": "/var/lib/mongodb-mms-automation",
         "downloadBaseWindows": "C:\\mongodb-mms-automation"
     },
     "mongoDbVersions": [
-        {"name": "3.0.1"},
-        {"name": "3.0.2"}
+        {
+            "name": "2.6.9-ent"
+        }
     ],
     "backupVersions": [
         {
-            "hostname": "MACHINE_HOSTNAME",
-            "logPath": "/var/log/mongodb-mms-automation/backup-agent.log",
-            "logRotate": {
-                "sizeThresholdMB": 1000,
-                "timeThresholdHrs": 24
-            }
+            "hostname": "Machine_hostname"
         }
     ],
 
     "monitoringVersions": [
         {
-            "hostname": "MACHINE_HOSTNAME",
-            "logPath": "/var/log/mongodb-mms-automation/monitoring-agent.log",
-            "logRotate": {
-                "sizeThresholdMB": 1000,
-                "timeThresholdHrs": 24
-            }
+            "hostname": "Machine_hostname"
         }
     ],
     "processes": [
@@ -43,16 +34,19 @@
                 "systemLog": {
                     "destination": "file",
                     "path": "/data/blue_0/mongodb.log"
+                },
+                "setParameter": {
+                    "saslauthdPath": "/var/run/saslauthd/mux"
                 }
             },
-            "hostname": "MACHINE_HOSTNAME",
+            "hostname": "Machine_hostname",
             "logRotate": {
                 "sizeThresholdMB": 1000,
                 "timeThresholdHrs": 24
             },
             "name": "blue_0",
             "processType": "mongod",
-            "version": "3.0.2",
+            "version": "2.6.9-ent",
             "authSchemaVersion": 3
         },
         {
@@ -69,16 +63,19 @@
                 "systemLog": {
                     "destination": "file",
                     "path": "/data/blue_1/mongodb.log"
+                },
+                "setParameter": {
+                    "saslauthdPath": "/var/run/saslauthd/mux"
                 }
             },
-            "hostname": "MACHINE_HOSTNAME",
+            "hostname": "Machine_hostname",
             "logRotate": {
                 "sizeThresholdMB": 1000,
                 "timeThresholdHrs": 24
             },
             "name": "blue_1",
             "processType": "mongod",
-            "version": "3.0.2",
+            "version": "2.6.9-ent",
             "authSchemaVersion": 3
         },
         {
@@ -95,64 +92,19 @@
                 "systemLog": {
                     "destination": "file",
                     "path": "/data/blue_2/mongodb.log"
+                },
+                "setParameter": {
+                    "saslauthdPath": "/var/run/saslauthd/mux"
                 }
             },
-            "hostname": "MACHINE_HOSTNAME",
+            "hostname": "Machine_hostname",
             "logRotate": {
                 "sizeThresholdMB": 1000,
                 "timeThresholdHrs": 24
             },
             "name": "blue_2",
             "processType": "mongod",
-            "version": "3.0.2",
-            "authSchemaVersion": 3
-        },
-        {
-            "args2_6": {
-                "net": {
-                    "port": 28017
-                },
-                "systemLog": {
-                    "destination": "file",
-                    "path": "/data/blue_mongos_3/mongodb.log"
-                }
-            },
-            "cluster": "blueCluster",
-            "hostname": "MACHINE_HOSTNAME",
-            "logRotate": {
-                "sizeThresholdMB": 1000,
-                "timeThresholdHrs": 24
-            },
-            "name": "blue_mongos_3",
-            "processType": "mongos",
-            "version": "3.0.2",
-            "authSchemaVersion": 3
-        },
-        {
-            "args2_6": {
-                "net": {
-                    "port": 28019
-                },
-                "sharding": {
-                    "clusterRole": "configsvr"
-                },
-                "storage": {
-                    "dbPath": "/data/blue_config_4"
-                },
-                "systemLog": {
-                    "destination": "file",
-                    "path": "/data/blue_config_4/mongodb.log"
-                }
-            },
-            "hostname": "MACHINE_HOSTNAME",
-            "alias": "MACHINE_HOSTNAME",
-            "logRotate": {
-                "sizeThresholdMB": 1000,
-                "timeThresholdHrs": 24
-            },
-            "name": "blue_config_4",
-            "processType": "mongod",
-            "version": "3.0.2",
+            "version": "2.6.9-ent",
             "authSchemaVersion": 3
         }
     ],
@@ -162,7 +114,8 @@
             "members": [
                 {
                     "_id": 0,
-                    "host": "blue_0"
+                    "host": "blue_0",
+                    "priority": 5
                 },
                 {
                     "_id": 1,
@@ -177,18 +130,54 @@
             ]
         }
     ],
-    "sharding": [
-        {
-            "configServer": [
-                "blue_config_4"
-            ],
-            "name": "blueCluster",
-            "shards": [
-                {
-                    "_id": "blue",
-                    "rs": "blue"
-                }
-            ]
-        }
-    ]
+    "roles": [],
+    "sharding": [],
+    "auth": {
+        "disabled": false,
+        "autoAuthMechanism": "PLAIN",
+        "autoUser": "automation-agent",
+        "autoPwd": "apassword",
+        "deploymentAuthMechanisms": ["PLAIN"],
+        "key": "someverylongandrandomcontents",
+        "keyfile": "/var/lib/mongodb-mms-automation/keyfile",
+        "usersWanted": [
+             {
+                "db": "$external",
+                "roles": [
+                    {
+                        "db": "admin",
+                        "role": "clusterMonitor"
+                    }
+                ],
+                "user": "monitoring-agent"
+            },
+            {
+                "db": "$external",
+                "roles": [
+                    {
+                        "db": "admin",
+                        "role": "clusterAdmin"
+                    },
+                    {
+                        "db": "admin",
+                        "role": "readAnyDatabase"
+                    },
+                    {
+                        "db": "admin",
+                        "role": "userAdminAnyDatabase"
+                    },
+                    {
+                        "db": "local",
+                        "role": "readWrite"
+                    },
+                    {
+                        "db": "admin",
+                        "role": "readWrite"
+                    }
+                ],
+                "user": "backup-agent"
+            }
+        ],
+        "usersDeleted": []
+    }
 }

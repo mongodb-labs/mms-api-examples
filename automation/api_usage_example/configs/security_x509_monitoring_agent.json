@@ -1,0 +1,8 @@
+{
+  "logPath": "/var/log/mongodb-mms-automation/monitoring-agent.log",
+  "logRotate": {
+    "sizeThresholdMB": 1000,
+    "timeThresholdHrs": 24
+  },
+  "sslPEMKeyFile": "/opt/monitoring-agent.pem"
+}

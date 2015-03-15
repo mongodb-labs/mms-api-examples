@@ -1,0 +1,9 @@
+{
+  "logPath": "/var/log/mongodb-mms-automation/backup-agent.log",
+  "logRotate": {
+    "sizeThresholdMB": 1000,
+    "timeThresholdHrs": 24
+  },
+  "username": "backup-agent",
+  "password": "bpassword"
+}

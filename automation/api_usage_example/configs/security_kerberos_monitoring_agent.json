@@ -1,0 +1,9 @@
+{
+  "logPath": "/var/log/mongodb-mms-automation/monitoring-agent.log",
+  "logRotate": {
+    "sizeThresholdMB": 1000,
+    "timeThresholdHrs": 24
+  },
+  "kerberosPrincipal": "monitoring-agent/Machine_hostname@MMS.COM",
+  "kerberosKeytab": "/opt/monitoring-agent.keytab"
+}
