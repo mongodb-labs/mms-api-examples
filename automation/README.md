@@ -65,15 +65,15 @@ This example can also be viewed [here](https://github.com/10gen-labs/mms-api-exa
 #### Defining MongoDB Versions
 
 Next, specify the MongoDB versions that you wish to use in your deployment.  A simple example specifying the use of
-MongoDB versions 2.6.5 and 2.6.6 looks like this:
+MongoDB versions 3.0.1 and 3.0.2 looks like this:
 
     {
         "options": {
             "downloadBase": "/var/lib/mongodb-mms-automation"
         },
         "mongoDbVersions": [
-            {"name": "2.6.5"},
-            {"name": "2.6.6"}
+            {"name": "3.0.1"},
+            {"name": "3.0.2"}
         ],
         "monitoringVersions": [],
         "backupVersions": [],
@@ -92,8 +92,8 @@ If you have a license for the Enterprise versions of MongoDB, these may be speci
             "downloadBase": "/var/lib/mongodb-mms-automation"
         },
         "mongoDbVersions": [
-            {"name": "2.6.5-ent"},
-            {"name": "2.6.6-ent"}
+            {"name": "3.0.1-ent"},
+            {"name": "3.0.2-ent"}
         ],
         "monitoringVersions": [],
         "backupVersions": [],
@@ -118,8 +118,8 @@ Monitoring Agent and Backup Agent.  Adding the Monitoring and Backup Agents to o
             "downloadBase": "/var/lib/mongodb-mms-automation"
         },
         "mongoDbVersions": [
-            {"name": "2.4.12"},
-            {"name": "2.6.5"}
+            {"name": "3.0.1"},
+            {"name": "3.0.2"}
         ],
         "monitoringVersions": [
             {
@@ -183,7 +183,7 @@ On our simple single-server deployment, these fields might look like:
             },
             "name": "blue_0",
             "processType": "mongod",
-            "version": "2.6.5",
+            "version": "3.0.1",
             "authSchemaVersion": 3
         },
         {
@@ -209,7 +209,7 @@ On our simple single-server deployment, these fields might look like:
             },
             "name": "blue_1",
             "processType": "mongod",
-            "version": "2.6.5",
+            "version": "3.0.1",
             "authSchemaVersion": 3
         },
         {
@@ -235,7 +235,7 @@ On our simple single-server deployment, these fields might look like:
             },
             "name": "blue_2",
             "processType": "mongod",
-            "version": "2.6.5",
+            "version": "3.0.1",
             "authSchemaVersion": 3
         }
     ],
@@ -424,8 +424,8 @@ This example gradually builds up a MongoDB deployment, going through the followi
 1. Setting up the download base.
 2. Defining MongoDB versions.
 3. Defining a configuration for a Monitoring and Backup Agent.
-4. Deploying a 3-member replica set on MongoDB 2.6.5.
-5. Upgrading this replica set to MongoDB 2.6.6.
+4. Deploying a 3-member replica set on MongoDB 3.0.1.
+5. Upgrading this replica set to MongoDB 3.0.2.
 6. Converting this replica set to a single shard cluster.
 7. Enabling authentication
 

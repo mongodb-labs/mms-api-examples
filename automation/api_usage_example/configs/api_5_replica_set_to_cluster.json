@@ -3,12 +3,12 @@
         "downloadBase": "/var/lib/mongodb-mms-automation"
     },
     "mongoDbVersions": [
-        {"name": "2.6.5"},
-        {"name": "2.6.6"}
+        {"name": "3.0.1"},
+        {"name": "3.0.2"}
     ],
     "backupVersions": [
         {
-            "hostname": "AGENT_HOSTNAME",
+            "hostname": "MACHINE_HOSTNAME",
             "logPath": "/var/log/mongodb-mms-automation/backup-agent.log",
             "logRotate": {
                 "sizeThresholdMB": 1000,
@@ -19,7 +19,7 @@
 
     "monitoringVersions": [
         {
-            "hostname": "AGENT_HOSTNAME",
+            "hostname": "MACHINE_HOSTNAME",
             "logPath": "/var/log/mongodb-mms-automation/monitoring-agent.log",
             "logRotate": {
                 "sizeThresholdMB": 1000,
@@ -44,14 +44,14 @@
                     "path": "/data/blue_0/mongodb.log"
                 }
             },
-            "hostname": "AGENT_HOSTNAME",
+            "hostname": "MACHINE_HOSTNAME",
             "logRotate": {
                 "sizeThresholdMB": 1000,
                 "timeThresholdHrs": 24
             },
             "name": "blue_0",
             "processType": "mongod",
-            "version": "2.6.6",
+            "version": "3.0.2",
             "authSchemaVersion": 3
         },
         {
@@ -70,14 +70,14 @@
                     "path": "/data/blue_1/mongodb.log"
                 }
             },
-            "hostname": "AGENT_HOSTNAME",
+            "hostname": "MACHINE_HOSTNAME",
             "logRotate": {
                 "sizeThresholdMB": 1000,
                 "timeThresholdHrs": 24
             },
             "name": "blue_1",
             "processType": "mongod",
-            "version": "2.6.6",
+            "version": "3.0.2",
             "authSchemaVersion": 3
         },
         {
@@ -96,14 +96,14 @@
                     "path": "/data/blue_2/mongodb.log"
                 }
             },
-            "hostname": "AGENT_HOSTNAME",
+            "hostname": "MACHINE_HOSTNAME",
             "logRotate": {
                 "sizeThresholdMB": 1000,
                 "timeThresholdHrs": 24
             },
             "name": "blue_2",
             "processType": "mongod",
-            "version": "2.6.6",
+            "version": "3.0.2",
             "authSchemaVersion": 3
         },
         {
@@ -117,14 +117,14 @@
                 }
             },
             "cluster": "blueCluster",
-            "hostname": "AGENT_HOSTNAME",
+            "hostname": "MACHINE_HOSTNAME",
             "logRotate": {
                 "sizeThresholdMB": 1000,
                 "timeThresholdHrs": 24
             },
             "name": "blue_mongos_3",
             "processType": "mongos",
-            "version": "2.6.6",
+            "version": "3.0.2",
             "authSchemaVersion": 3
         },
         {
@@ -143,15 +143,15 @@
                     "path": "/data/blue_config_4/mongodb.log"
                 }
             },
-            "hostname": "AGENT_HOSTNAME",
-            "alias": "AGENT_HOSTNAME",
+            "hostname": "MACHINE_HOSTNAME",
+            "alias": "MACHINE_HOSTNAME",
             "logRotate": {
                 "sizeThresholdMB": 1000,
                 "timeThresholdHrs": 24
             },
             "name": "blue_config_4",
             "processType": "mongod",
-            "version": "2.6.6",
+            "version": "3.0.2",
             "authSchemaVersion": 3
         }
     ],

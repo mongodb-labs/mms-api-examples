@@ -3,12 +3,12 @@
         "downloadBase": "/var/lib/mongodb-mms-automation"
     },
     "mongoDbVersions": [
-        {"name": "2.4.12"},
-        {"name": "2.6.5"}
+        {"name": "3.0.1"},
+        {"name": "3.0.2"}
     ],
     "monitoringVersions": [
         {
-            "hostname": "AGENT_HOSTNAME",
+            "hostname": "MACHINE_HOSTNAME",
             "logPath": "/var/log/mongodb-mms-automation/backup-agent.log",
             "logRotate": {
                 "sizeThresholdMB": 1000,
@@ -18,7 +18,7 @@
     ],
     "backupVersions": [
         {
-            "hostname": "AGENT_HOSTNAME",
+            "hostname": "MACHINE_HOSTNAME",
             "logPath": "/var/log/mongodb-mms-automation/backup-agent.log",
             "logRotate": {
                 "sizeThresholdMB": 1000,

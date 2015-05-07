@@ -3,8 +3,8 @@
         "downloadBase": "/var/lib/mongodb-mms-automation"
     },
     "mongoDbVersions": [
-        {"name": "2.6.5"},
-        {"name": "2.6.6"}
+        {"name": "3.0.1"},
+        {"name": "3.0.2"}
     ],
     "monitoringVersions": [],
     "backupVersions": [],
