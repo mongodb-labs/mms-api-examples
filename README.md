@@ -6,6 +6,6 @@ You are responsible for reviewing and testing any scripts you run thoroughly bef
 
 #MMS API Examples#
 
-* [Automation API Examples](https://github.com/10gen/mms-api-examples/blob/master/automation/README.md)
+* [Automation API Examples](https://github.com/10gen-labs/mms-api-examples/blob/master/automation/README.md)
 
 
