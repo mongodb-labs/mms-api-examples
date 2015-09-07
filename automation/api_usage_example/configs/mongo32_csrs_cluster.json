@@ -1,0 +1,272 @@
+{
+   "options": {
+        "downloadBase": "/var/lib/mongodb-mms-automation",
+        "downloadBaseWindows": "C:\\mongodb-mms-automation"
+    },
+    "mongoDbVersions": [
+        {"name": "3.0.6"},
+        {"name": "3.1.7"}
+    ],
+    "backupVersions": [
+        {
+            "hostname": "MACHINE_HOSTNAME",
+            "logPath": "/var/log/mongodb-mms-automation/backup-agent.log",
+            "logRotate": {
+                "sizeThresholdMB": 1000,
+                "timeThresholdHrs": 24
+            }
+        }
+    ],
+
+    "monitoringVersions": [
+        {
+            "hostname": "MACHINE_HOSTNAME",
+            "logPath": "/var/log/mongodb-mms-automation/monitoring-agent.log",
+            "logRotate": {
+                "sizeThresholdMB": 1000,
+                "timeThresholdHrs": 24
+            }
+        }
+    ],
+    "processes": [
+        {
+            "args2_6": {
+                "net": {
+                    "port": 28000
+                },
+                "replication": {
+                    "replSetName": "blue"
+                },
+                "storage": {
+                    "dbPath": "/tmp/data/blue_0"
+                },
+                "systemLog": {
+                    "destination": "file",
+                    "path": "/tmp/data/blue_0/mongodb.log"
+                }
+            },
+            "hostname": "MACHINE_HOSTNAME",
+            "logRotate": {
+                "sizeThresholdMB": 1000,
+                "timeThresholdHrs": 24
+            },
+            "name": "blue_0",
+            "processType": "mongod",
+            "version": "3.1.7",
+            "authSchemaVersion": 3
+        },
+        {
+            "args2_6": {
+                "net": {
+                    "port": 28001
+                },
+                "replication": {
+                    "replSetName": "blue"
+                },
+                "storage": {
+                    "dbPath": "/tmp/data/blue_1"
+                },
+                "systemLog": {
+                    "destination": "file",
+                    "path": "/tmp/data/blue_1/mongodb.log"
+                }
+            },
+            "hostname": "MACHINE_HOSTNAME",
+            "logRotate": {
+                "sizeThresholdMB": 1000,
+                "timeThresholdHrs": 24
+            },
+            "name": "blue_1",
+            "processType": "mongod",
+            "version": "3.1.7",
+            "authSchemaVersion": 3
+        },
+        {
+            "args2_6": {
+                "net": {
+                    "port": 28002
+                },
+                "replication": {
+                    "replSetName": "blue"
+                },
+                "storage": {
+                    "dbPath": "/tmp/data/blue_2"
+                },
+                "systemLog": {
+                    "destination": "file",
+                    "path": "/tmp/data/blue_2/mongodb.log"
+                }
+            },
+            "hostname": "MACHINE_HOSTNAME",
+            "logRotate": {
+                "sizeThresholdMB": 1000,
+                "timeThresholdHrs": 24
+            },
+            "name": "blue_2",
+            "processType": "mongod",
+            "version": "3.1.7",
+            "authSchemaVersion": 3
+        },
+        {
+            "args2_6": {
+                "net": {
+                    "port": 28017
+                },
+                "systemLog": {
+                    "destination": "file",
+                    "path": "/tmp/data/blue_mongos_3/mongodb.log"
+                }
+            },
+            "cluster": "blueCluster",
+            "hostname": "MACHINE_HOSTNAME",
+            "logRotate": {
+                "sizeThresholdMB": 1000,
+                "timeThresholdHrs": 24
+            },
+            "name": "blue_mongos_3",
+            "processType": "mongos",
+            "version": "3.1.7",
+            "authSchemaVersion": 3
+        },
+        {
+            "args2_6": {
+                "net": {
+                    "port": 28019
+                },
+                "replication": {
+                    "replSetName": "blue_config_rs"
+                },
+                "sharding": {
+                    "clusterRole": "configsvr"
+                },
+                "storage": {
+                    "dbPath": "/tmp/data/blue_config_4"
+                },
+                "systemLog": {
+                    "destination": "file",
+                    "path": "/tmp/data/blue_config_4/mongodb.log"
+                }
+            },
+            "hostname": "MACHINE_HOSTNAME",
+            "alias": "MACHINE_HOSTNAME",
+            "logRotate": {
+                "sizeThresholdMB": 1000,
+                "timeThresholdHrs": 24
+            },
+            "name": "blue_config_4",
+            "processType": "mongod",
+            "version": "3.1.7",
+            "authSchemaVersion": 3
+        },
+        {
+            "args2_6": {
+                "net": {
+                    "port": 28020
+                },
+                "replication": {
+                    "replSetName": "blue_config_rs"
+                },
+                "sharding": {
+                    "clusterRole": "configsvr"
+                },
+                "storage": {
+                    "dbPath": "/tmp/data/blue_config_5"
+                },
+                "systemLog": {
+                    "destination": "file",
+                    "path": "/tmp/data/blue_config_5/mongodb.log"
+                }
+            },
+            "hostname": "MACHINE_HOSTNAME",
+            "alias": "MACHINE_HOSTNAME",
+            "logRotate": {
+                "sizeThresholdMB": 1000,
+                "timeThresholdHrs": 24
+            },
+            "name": "blue_config_5",
+            "processType": "mongod",
+            "version": "3.1.7",
+            "authSchemaVersion": 3
+        },
+        {
+            "args2_6": {
+                "net": {
+                    "port": 28021
+                },
+                "replication": {
+                    "replSetName": "blue_config_rs"
+                },
+                "sharding": {
+                    "clusterRole": "configsvr"
+                },
+                "storage": {
+                    "dbPath": "/tmp/data/blue_config_6"
+                },
+                "systemLog": {
+                    "destination": "file",
+                    "path": "/tmp/data/blue_config_6/mongodb.log"
+                }
+            },
+            "hostname": "MACHINE_HOSTNAME",
+            "alias": "MACHINE_HOSTNAME",
+            "logRotate": {
+                "sizeThresholdMB": 1000,
+                "timeThresholdHrs": 24
+            },
+            "name": "blue_config_6",
+            "processType": "mongod",
+            "version": "3.1.7",
+            "authSchemaVersion": 3
+        }
+    ],
+    "replicaSets": [
+        {
+            "_id": "blue",
+            "members": [
+                {
+                    "_id": 0,
+                    "host": "blue_0"
+                },
+                {
+                    "_id": 1,
+                    "host": "blue_1"
+                },
+                {
+                    "_id": 2,
+                    "arbiterOnly": true,
+                    "host": "blue_2",
+                    "priority": 0
+                }
+            ]
+        },
+        {
+              "_id": "blue_config_rs",
+              "members": [
+                  {
+                      "_id": 0,
+                      "host": "blue_config_4"
+                  },
+                  {
+                      "_id": 1,
+                      "host": "blue_config_5"
+                  },
+                  {
+                      "_id": 2,
+                      "host": "blue_config_6"
+                  }
+              ]
+          }
+    ],
+    "sharding": [
+        {
+            "configServerReplica": "blue_config_rs",
+            "name": "blueCluster",
+            "shards": [
+                {
+                    "_id": "blue",
+                    "rs": "blue"
+                }
+            ]
+        }
+    ]
+}
