@@ -431,6 +431,8 @@ This example gradually builds up a MongoDB deployment, going through the followi
 
 The series of Automation Configs that are deployed can be found [here](https://github.com/10gen-labs/mms-api-examples/tree/master/automation/api_usage_example/configs).
 
+This example requires installing the [requests](http://www.python-requests.org/) module.
+
 To run the code:
 
     python test_automation_api.py MMS_BASE_URL AGENT_HOSTNAME GROUP_ID MMS_USER_ID MMS_USER_API_KEY
