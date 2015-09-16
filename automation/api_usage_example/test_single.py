@@ -22,7 +22,7 @@ class TestAutomationApi(AutomationApiBase):
 
 if __name__ == '__main__':
 
-    # python test_enterprise_advanced.py http://localhost:8080 cailinmac 541ed2009436399a1f54e01b cailin.nelson@10gen.com da5f6890-1ee4-49db-83ca-ece9b2dbe5c0 mongo32_csrs_cluster
+    # python test_single.py http://localhost:8080 cailinmac 541ed2009436399a1f54e01b cailin.nelson@10gen.com da5f6890-1ee4-49db-83ca-ece9b2dbe5c0 mongo32_csrs_cluster
     parser = argparse.ArgumentParser(description='Automation API Demo')
     parser.add_argument('base_url', help="Base URL")
     parser.add_argument('machine_hostname', help="Agent Hostname")
