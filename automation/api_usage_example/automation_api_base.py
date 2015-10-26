@@ -1,20 +1,17 @@
-import argparse
 import json
 import logging
-import pprint
-import requests
 import time
 
-from requests.auth import HTTPDigestAuth
+from api_base import ApiBase
 
-class AutomationApiBase:
+class AutomationApiBase(ApiBase):
 
     def __init__(self, base_url, machine_hostname, group_id, api_user, api_key):
-        self.base_url = base_url + "/api/public/v1.0"
+        ApiBase.__init__(self, base_url, group_id, api_user, api_key)
         self.machine_hostname = machine_hostname
-        self.group_id = group_id
-        self.api_user = api_user
-        self.api_key = api_key
+
+    def clean(self):
+        self.post_automation_config("configs/api_0_clean.json")
 
     def wait_for_goal_state(self):
 
@@ -57,36 +54,14 @@ class AutomationApiBase:
         json_body = self.load_config(file_name)
         return self.put(url, json_body)
 
-    def post_automation_config(self, file_name):
+    def post_automation_config(self, file_name_or_json):
         url = "%s/groups/%s/automationConfig" % (self.base_url, self.group_id)
-        json_body = self.load_config(file_name)
+        if isinstance(file_name_or_json, basestring):
+            json_body = self.load_config(file_name_or_json)
+        else:
+            json_body = file_name_or_json
+
         return self.put(url, json_body)
-
-    def get(self, url):
-        logging.info("Executing GET: %s" % url)
-        r = requests.get(url, auth=HTTPDigestAuth(self.api_user, self.api_key))
-        self.check_response(r)
-        logging.debug("%s" % pprint.pformat(r.json()))
-        return r.json()
-
-    def put(self, url, json_body):
-        logging.info("Executing PUT: %s" % url)
-        headers = {'content-type': 'application/json'}
-        r = requests.put(
-            url,
-            auth=HTTPDigestAuth(self.api_user, self.api_key),
-            data=json.dumps(json_body),
-            headers=headers
-        )
-        self.check_response(r)
-        logging.debug("%s" % pprint.pformat(r.json()))
-
-        return r
-
-    def check_response(self, r):
-        if r.status_code != requests.codes.ok:
-            logging.error("Response Error Code: %s Detail: %s" % (r.status_code, r.json()['detail']))
-            raise ValueError(r.json()['detail'])
 
     def load_config(self, file_name):
         data = self.load_json(file_name)
