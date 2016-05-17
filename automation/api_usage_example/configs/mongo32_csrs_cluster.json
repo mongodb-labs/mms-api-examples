@@ -4,8 +4,7 @@
         "downloadBaseWindows": "C:\\mongodb-mms-automation"
     },
     "mongoDbVersions": [
-        {"name": "3.0.6"},
-        {"name": "3.1.7"}
+        {"name": "3.2.5"}
     ],
     "backupVersions": [
         {
@@ -52,7 +51,7 @@
             },
             "name": "blue_0",
             "processType": "mongod",
-            "version": "3.1.7",
+            "version": "3.2.5",
             "authSchemaVersion": 3
         },
         {
@@ -78,7 +77,7 @@
             },
             "name": "blue_1",
             "processType": "mongod",
-            "version": "3.1.7",
+            "version": "3.2.5",
             "authSchemaVersion": 3
         },
         {
@@ -104,7 +103,7 @@
             },
             "name": "blue_2",
             "processType": "mongod",
-            "version": "3.1.7",
+            "version": "3.2.5",
             "authSchemaVersion": 3
         },
         {
@@ -125,7 +124,7 @@
             },
             "name": "blue_mongos_3",
             "processType": "mongos",
-            "version": "3.1.7",
+            "version": "3.2.5",
             "authSchemaVersion": 3
         },
         {
@@ -155,7 +154,7 @@
             },
             "name": "blue_config_4",
             "processType": "mongod",
-            "version": "3.1.7",
+            "version": "3.2.5",
             "authSchemaVersion": 3
         },
         {
@@ -185,7 +184,7 @@
             },
             "name": "blue_config_5",
             "processType": "mongod",
-            "version": "3.1.7",
+            "version": "3.2.5",
             "authSchemaVersion": 3
         },
         {
@@ -215,7 +214,7 @@
             },
             "name": "blue_config_6",
             "processType": "mongod",
-            "version": "3.1.7",
+            "version": "3.2.5",
             "authSchemaVersion": 3
         }
     ],

@@ -8,7 +8,7 @@ from backup_api_base import BackupApiBase
 logging.basicConfig(
     level=logging.DEBUG, format='[%(asctime)s] [%(levelname)s] %(message)s')
 
-class TestRestoreFromBackup:
+class TestRestoreFromBackupReplicaSet:
 
     def __init__(self, base_url, machine_hostname, group_id, api_user, api_key, step_over):
         self.automation_api = AutomationApiBase(base_url, machine_hostname, group_id, api_user, api_key)
@@ -56,7 +56,7 @@ class TestRestoreFromBackup:
         restore_link = None
 
         while True:
-            restore_job_status = self.backup_api.get_restore_job_result(replica_set_name, restore_job['id'])
+            restore_job_status = self.backup_api.get_restore_job_result_replica_set(replica_set_name, restore_job['id'])
             delivery_status = restore_job_status['delivery']['statusName']
             if delivery_status == 'READY':
                 restore_link = restore_job_status['delivery']['url']
@@ -73,7 +73,7 @@ class TestRestoreFromBackup:
 
 if __name__ == '__main__':
 
-    # python test_restore_from_backup.py http://mms.example.com:8080 mongo-01.example.com 54b5e4df9436322466a89a3e apple@johnandcailin.com 04e2aa59-d410-446f-aba9-70cf37010b7c
+    # python test_restore_from_backup_replica_set.py http://mms.example.com:8080 mongo-01.example.com 54b5e4df9436322466a89a3e apple@johnandcailin.com 04e2aa59-d410-446f-aba9-70cf37010b7c
     parser = argparse.ArgumentParser(description='Automation API Demo')
     parser.add_argument('base_url', help="Base URL")
     parser.add_argument('machine_hostname', help="Agent Hostname")
@@ -83,6 +83,6 @@ if __name__ == '__main__':
     parser.add_argument('--step', action='store_true', required=False)
     args = parser.parse_args()
 
-    test = TestRestoreFromBackup(args.base_url, args.machine_hostname, args.group_id, args.api_user, args.api_key, args.step)
+    test = TestRestoreFromBackupReplicaSet(args.base_url, args.machine_hostname, args.group_id, args.api_user, args.api_key, args.step)
     test.run()
 

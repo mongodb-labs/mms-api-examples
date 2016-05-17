@@ -29,7 +29,7 @@ class AutomationApiBase(ApiBase):
                     continue_to_wait = True
 
             if continue_to_wait:
-                time.sleep(1)
+                time.sleep(5)
             else:
                 logging.info("All processes in Goal State. GoalVersionAchieved: %s" % goal_version)
                 break
