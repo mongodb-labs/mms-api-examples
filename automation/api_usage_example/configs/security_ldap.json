@@ -10,13 +10,13 @@
     ],
     "backupVersions": [
         {
-            "hostname": "Machine_hostname"
+            "hostname": "MACHINE_HOSTNAME"
         }
     ],
 
     "monitoringVersions": [
         {
-            "hostname": "Machine_hostname"
+            "hostname": "MACHINE_HOSTNAME"
         }
     ],
     "processes": [
@@ -39,7 +39,7 @@
                     "saslauthdPath": "/var/run/saslauthd/mux"
                 }
             },
-            "hostname": "Machine_hostname",
+            "hostname": "MACHINE_HOSTNAME",
             "logRotate": {
                 "sizeThresholdMB": 1000,
                 "timeThresholdHrs": 24
@@ -68,7 +68,7 @@
                     "saslauthdPath": "/var/run/saslauthd/mux"
                 }
             },
-            "hostname": "Machine_hostname",
+            "hostname": "MACHINE_HOSTNAME",
             "logRotate": {
                 "sizeThresholdMB": 1000,
                 "timeThresholdHrs": 24
@@ -97,7 +97,7 @@
                     "saslauthdPath": "/var/run/saslauthd/mux"
                 }
             },
-            "hostname": "Machine_hostname",
+            "hostname": "MACHINE_HOSTNAME",
             "logRotate": {
                 "sizeThresholdMB": 1000,
                 "timeThresholdHrs": 24

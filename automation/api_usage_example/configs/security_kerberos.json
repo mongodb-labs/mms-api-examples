@@ -10,13 +10,13 @@
     ],
     "backupVersions": [
         {
-            "hostname": "Machine_hostname"
+            "hostname": "MACHINE_HOSTNAME"
         }
     ],
 
     "monitoringVersions": [
         {
-            "hostname": "Machine_hostname"
+            "hostname": "MACHINE_HOSTNAME"
         }
     ],
     "processes": [
@@ -36,7 +36,7 @@
                     "path": "/data/blue_0/mongodb.log"
                 }
             },
-            "hostname": "Machine_hostname",
+            "hostname": "MACHINE_HOSTNAME",
             "logRotate": {
                 "sizeThresholdMB": 1000,
                 "timeThresholdHrs": 24
@@ -65,7 +65,7 @@
                     "path": "/data/blue_1/mongodb.log"
                 }
             },
-            "hostname": "Machine_hostname",
+            "hostname": "MACHINE_HOSTNAME",
             "logRotate": {
                 "sizeThresholdMB": 1000,
                 "timeThresholdHrs": 24
@@ -94,7 +94,7 @@
                     "path": "/data/blue_2/mongodb.log"
                 }
             },
-            "hostname": "Machine_hostname",
+            "hostname": "MACHINE_HOSTNAME",
             "logRotate": {
                 "sizeThresholdMB": 1000,
                 "timeThresholdHrs": 24
@@ -134,7 +134,7 @@
     "auth": {
         "disabled": false,
         "autoAuthMechanism": "GSSAPI",
-        "autoUser": "automation-agent/Machine_hostname@MMS.COM",
+        "autoUser": "automation-agent/MACHINE_HOSTNAME@MMS.COM",
         "autoKerberosKeytabPath": "/opt/automation-agent.keytab",
         "deploymentAuthMechanisms": ["GSSAPI"],
         "key": "GrSLAAsHGXmJOrvElJ2AHTGauvH4O0EFT1r8byvb0G9sTU0viVX21PwUMqBjyXB9WrZP9QvEmCQIF1wOqJofyWmx7wWZqpO69dnc9GUWcpGQLr7eVyKTs99WAPXR3kXpF4MVrHdBMEDfRfhytgomgAso96urN6eC8RaUpjX4Bf9HcAEJwfddZshin97XKJDmqCaqAfORNnf1e8hkfTIwYg1tvIpwemmEF4TkmOgK09N5dINyejyWMU8iWG8FqW5MfQ8A2DrtIdyGSKLH05s7H1dXyADjDECaC77QqLXTx7gWyHca3I0K92PuVFoOs5385vzqTYN3kVgFotSdXgoM8Zt5QIoj2lX4PYqm2TWsVp0s15JELikH8bNVIIMGiSSWJEWGU1PVEXD7V7cYepDb88korMjr3wbh6kZ76Q7F2RtfJqkd4hKw7B5OCX04b5eppkjL598iCpSUUx3X9C6fFavWj2DrHsv9DY86iCWBlcG08DRPKs9EPizCW4jNZtJcm3T7WlcI0MZMKOtsKOCWBZA0C9YnttNrp4eTsQ1U43StiIRPqp2K8rrQAu6etURH0RHedazHeeukTWI7iTG1dZpYk9EyittZ72qKXLNLhi5vJ9TlYw8O91vihB1nJwwA3B1WbiYhkqqRzoL0cQpXJMUsUlsoSP6Q70IMU92vEHbUmna5krESPLeJfQBKGQPNVVE63XYBh2TnvFTdi6koitu209wMFUnHZrzWj3UWGqsyTqqHbPl4RhRLFe24seRwV2SbUuLygBIdptKHnA3kutAbHzsWTT8UxOaiQzFV4auxounrgXj7MoMWEVKKS8AHkELPILGqFVFC8BZsfPC0WacSN5Rg5SaCvfs74hcsCQ3ghq9PyxEb2fbHUiaCjnsBcXqzQw9AjZJG4yX0ubEwicP0bKB6y3w4PUQqdouxH5y16OgkUjrZgodJfRLgP9vqGbHNDpj4yBuswluvCFBh38gBoSIQu11qtQmk43n4G8Dskn0DrJ32l2Gz35q5LaKT",
@@ -148,7 +148,7 @@
                         "role": "clusterMonitor"
                     }
                 ],
-                "user": "monitoring-agent/Machine_hostname@MMS.COM"
+                "user": "monitoring-agent/MACHINE_HOSTNAME@MMS.COM"
             },
             {
                 "db": "$external",
@@ -174,7 +174,7 @@
                         "role": "readWrite"
                     }
                 ],
-                "user": "backup-agent/Machine_hostname@MMS.COM"
+                "user": "backup-agent/MACHINE_HOSTNAME@MMS.COM"
             }
         ],
         "usersDeleted": []

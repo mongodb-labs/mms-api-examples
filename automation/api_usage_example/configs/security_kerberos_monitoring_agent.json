@@ -4,6 +4,6 @@
     "sizeThresholdMB": 1000,
     "timeThresholdHrs": 24
   },
-  "kerberosPrincipal": "monitoring-agent/Machine_hostname@MMS.COM",
+  "kerberosPrincipal": "monitoring-agent/MACHINE_HOSTNAME@MMS.COM",
   "kerberosKeytab": "/opt/monitoring-agent.keytab"
 }

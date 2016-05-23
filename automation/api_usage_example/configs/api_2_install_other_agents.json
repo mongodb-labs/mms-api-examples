@@ -9,22 +9,12 @@
     ],
     "monitoringVersions": [
         {
-            "hostname": "MACHINE_HOSTNAME",
-            "logPath": "/var/log/mongodb-mms-automation/backup-agent.log",
-            "logRotate": {
-                "sizeThresholdMB": 1000,
-                "timeThresholdHrs": 24
-            }
+            "hostname": "MACHINE_HOSTNAME"
         }
     ],
     "backupVersions": [
         {
-            "hostname": "MACHINE_HOSTNAME",
-            "logPath": "/var/log/mongodb-mms-automation/backup-agent.log",
-            "logRotate": {
-                "sizeThresholdMB": 1000,
-                "timeThresholdHrs": 24
-            }
+            "hostname": "MACHINE_HOSTNAME"
         }
     ],
     "processes": [],

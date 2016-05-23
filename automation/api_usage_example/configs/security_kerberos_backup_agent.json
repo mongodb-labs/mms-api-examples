@@ -4,6 +4,6 @@
     "sizeThresholdMB": 1000,
     "timeThresholdHrs": 24
   },
-  "kerberosPrincipal": "backup-agent/Machine_hostname@MMS.COM",
+  "kerberosPrincipal": "backup-agent/MACHINE_HOSTNAME@MMS.COM",
   "kerberosKeytab": "/opt/backup-agent.keytab"
 }

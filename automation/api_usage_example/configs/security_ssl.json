@@ -14,13 +14,13 @@
     ],
     "backupVersions": [
         {
-            "hostname": "Machine_hostname"
+            "hostname": "MACHINE_HOSTNAME"
         }
     ],
 
     "monitoringVersions": [
         {
-            "hostname": "Machine_hostname"
+            "hostname": "MACHINE_HOSTNAME"
         }
     ],
     "processes": [
@@ -44,7 +44,7 @@
                     "path": "/data/blue_0/mongodb.log"
                 }
             },
-            "hostname": "Machine_hostname",
+            "hostname": "MACHINE_HOSTNAME",
             "logRotate": {
                 "sizeThresholdMB": 1000,
                 "timeThresholdHrs": 24
@@ -74,7 +74,7 @@
                     "path": "/data/blue_1/mongodb.log"
                 }
             },
-            "hostname": "Machine_hostname",
+            "hostname": "MACHINE_HOSTNAME",
             "logRotate": {
                 "sizeThresholdMB": 1000,
                 "timeThresholdHrs": 24
@@ -104,7 +104,7 @@
                     "path": "/data/blue_2/mongodb.log"
                 }
             },
-            "hostname": "Machine_hostname",
+            "hostname": "MACHINE_HOSTNAME",
             "logRotate": {
                 "sizeThresholdMB": 1000,
                 "timeThresholdHrs": 24
