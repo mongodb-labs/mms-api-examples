@@ -24,7 +24,10 @@ class TestRestoreFromBackupReplicaSet:
         logging.info("Enabling backup and waiting for restore link to be ready")
         restore_link = self.get_restore_link()
 
+        logging.info("Retrieving the current automation configuration")
         automation_config = self.automation_api.load_config(config_file)
+        
+        logging.info("Adding the desired restore_link to each process")
         for process in automation_config['processes']:
             process['backupRestoreUrl'] = restore_link
 
