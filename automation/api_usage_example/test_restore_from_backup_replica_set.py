@@ -16,7 +16,7 @@ class TestRestoreFromBackupReplicaSet:
         self.step_over = step_over
 
     def run(self):
-        config_file = 'configs/api_3_create_replica_set.json'
+        config_file = 'configs/mongo34_rs.json'
         logging.info("Setting up a simple replica set")
         self.automation_api.post_automation_config(config_file)
         logging.info("Waiting for goal state")
@@ -43,7 +43,7 @@ class TestRestoreFromBackupReplicaSet:
 
     def get_restore_link(self):
         replica_set_name = 'blue'
-        self.backup_api.start_backup_replica_set(replica_set_name)
+        self.backup_api.start_backup_replica_set(replica_set_name, "WIRED_TIGER")
 
         snapshot_id = None
         while True:
@@ -73,10 +73,9 @@ class TestRestoreFromBackupReplicaSet:
     def build_step_info(self, step, stepNumber):
         return "step {} ({})".format(stepNumber, step.description)
 
-
 if __name__ == '__main__':
 
-    # python test_restore_from_backup_replica_set.py http://mms.example.com:8080 mongo-01.example.com 54b5e4df9436322466a89a3e apple@johnandcailin.com 04e2aa59-d410-446f-aba9-70cf37010b7c
+    # python test_restore_from_backup_replica_set.py http://opsmanager.example.com somehostname 54b5e4df9436322466a89a3e john@example.com f0f88855-d211-4d4f-9461-e53b0822b505
     parser = argparse.ArgumentParser(description='Automation API Demo')
     parser.add_argument('base_url', help="Base URL")
     parser.add_argument('machine_hostname', help="Agent Hostname")

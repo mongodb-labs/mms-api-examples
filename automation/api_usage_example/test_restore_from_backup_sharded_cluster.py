@@ -10,10 +10,9 @@ logging.basicConfig(
 
 class TestRestoreFromBackupCluster:
 
-    def __init__(self, base_url, machine_hostname, group_id, api_user, api_key, step_over):
+    def __init__(self, base_url, machine_hostname, group_id, api_user, api_key):
         self.automation_api = AutomationApiBase(base_url, machine_hostname, group_id, api_user, api_key)
         self.backup_api = BackupApiBase(base_url, group_id, api_user, api_key)
-        self.step_over = step_over
 
     def run(self):
         config_file = 'configs/mongo32_csrs_cluster.json'
@@ -96,6 +95,7 @@ class TestRestoreFromBackupCluster:
                     # Identify the component by it's replica set id
                     restore_links[self.backup_api.get_replica_set_from_cluster_id(cluster_id)] = restore_link
 
+        logging.info("Full set of restore links ready: %s", restore_links)
         return restore_links
 
 
@@ -112,6 +112,6 @@ if __name__ == '__main__':
     parser.add_argument('api_key', help="API Key")
     args = parser.parse_args()
 
-    test = TestRestoreFromBackupCluster(args.base_url, args.machine_hostname, args.group_id, args.api_user, args.api_key, args.step)
+    test = TestRestoreFromBackupCluster(args.base_url, args.machine_hostname, args.group_id, args.api_user, args.api_key)
     test.run()
 
