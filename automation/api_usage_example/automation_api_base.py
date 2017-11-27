@@ -7,7 +7,8 @@ from api_base import ApiBase
 class AutomationApiBase(ApiBase):
 
     def __init__(self, base_url, machine_hostname, group_id, api_user, api_key):
-        ApiBase.__init__(self, base_url, group_id, api_user, api_key)
+        ApiBase.__init__(self, base_url, api_user, api_key)
+        self.group_id = group_id
         self.machine_hostname = machine_hostname
 
     def clean(self):

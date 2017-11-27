@@ -3,7 +3,8 @@ from api_base import ApiBase
 class BackupApiBase(ApiBase):
 
     def __init__(self, base_url, group_id, api_user, api_key):
-        ApiBase.__init__(self, base_url, group_id, api_user, api_key)
+        ApiBase.__init__(self, base_url, api_user, api_key)
+        self.group_id = group_id
 
     def get_restore_job_result_replica_set(self, replica_set_name, job_id):
         cluster_id = self._get_cluster_id_from_replica_set(replica_set_name)

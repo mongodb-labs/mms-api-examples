@@ -6,9 +6,8 @@ import requests
 from requests.auth import HTTPDigestAuth
 
 class ApiBase:
-    def __init__(self, base_url, group_id, api_user, api_key):
+    def __init__(self, base_url, api_user, api_key):
         self.base_url = base_url + "/api/public/v1.0"
-        self.group_id = group_id
         self.api_user = api_user
         self.api_key = api_key
 
@@ -62,6 +61,6 @@ class ApiBase:
         return r.json()
 
     def check_response(self, r):
-        if r.status_code not in [requests.codes.ok, 202]:
+        if r.status_code not in [requests.codes.ok, 201, 202]:
             logging.error("Response Error Code: %s Detail: %s" % (r.status_code, r.json()['detail']))
             raise ValueError(r.json()['detail'])
