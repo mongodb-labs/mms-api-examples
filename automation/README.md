@@ -124,7 +124,7 @@ Monitoring Agent and Backup Agent.  Adding the Monitoring and Backup Agents to o
         "monitoringVersions": [
             {
                 "hostname": "AGENT_HOSTNAME",
-                "logPath": "/var/log/mongodb-mms-automation/backup-agent.log",
+                "logPath": "/var/log/mongodb-mms-automation/monitoring-agent.log",
                 "logRotate": {
                     "sizeThresholdMB": 1000,
                     "timeThresholdHrs": 24
